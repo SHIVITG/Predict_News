@@ -22,6 +22,7 @@ API_KEY = '23d4b73d63aa478699da4b9ee7443e4b'
 #----------------------------------
 ScrapStart = "Fetching has been Initiated"
 ScrapCompelete = "Fetching data is completed"
+ScrapFailed = "Failed Scrapping due to some error.
 
 
 #------------------------------------------------------
@@ -67,6 +68,8 @@ def scrap_data(source,dataframe,list_of_regions):
     publishing = []
     regions = []
     print(ScrapStart)
+    if not source:
+      print(ScrapFailed)
     for region in list_of_regions:
         url = ('http://newsapi.org/v2/everything?'
            'q'+region+'&'
